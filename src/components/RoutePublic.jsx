@@ -16,7 +16,7 @@ RoutePublic.propTypes = {
 };
 
 RoutePublic.defaultProps = {
-  to: '/private',
+  to: '/quiz',
 };
 
 export default RoutePublic;

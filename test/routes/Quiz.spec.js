@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Private from 'routes/Private';
+import Quiz from 'routes/Quiz';
 
 function setup() {
   const props = {
@@ -8,10 +8,10 @@ function setup() {
     location: {},
   };
 
-  return shallow(<Private {...props} />);
+  return shallow(<Quiz {...props} />);
 }
 
-describe('Private', () => {
+describe('Quiz', () => {
   const wrapper = setup();
 
   it('should render properly', () => {

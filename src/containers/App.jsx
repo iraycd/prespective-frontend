@@ -15,7 +15,7 @@ import config from 'config';
 import { showAlert } from 'actions/index';
 
 import Home from 'routes/Home';
-import Private from 'routes/Private';
+import Quiz from 'routes/Quiz';
 import NotFound from 'routes/NotFound';
 
 import Header from 'components/Header';
@@ -89,8 +89,8 @@ export class App extends React.Component {
                 />
                 <RoutePrivate
                   isAuthenticated={user.isAuthenticated}
-                  path="/private"
-                  component={Private}
+                  path="/quiz"
+                  component={Quiz}
                 />
                 <Route component={NotFound} />
               </Switch>
