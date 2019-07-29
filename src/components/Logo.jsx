@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ReactComponent as Icon } from 'assets/media/brand/icon.svg';
-import { ReactComponent as RRS } from 'assets/media/brand/react-redux-saga.svg';
+import { ReactComponent as ShiftLogo } from 'assets/media/brand/shift.svg';
 
 export const Wrapper = styled.div`
   align-items: flex-start;
@@ -17,10 +15,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-const Logo = ({ type = 'icon' }) => <Wrapper>{type === 'icon' ? <Icon /> : <RRS />}</Wrapper>;
-
-Logo.propTypes = {
-  type: PropTypes.string,
-};
+const Logo = () => <Wrapper>{<ShiftLogo />}</Wrapper>;
 
 export default Logo;

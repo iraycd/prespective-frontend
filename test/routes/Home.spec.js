@@ -21,7 +21,7 @@ describe('Home', () => {
   });
 
   it('should handle clicks', () => {
-    wrapper.find('Button').simulate('click');
+    wrapper.find('GetStarted').simulate('click');
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'USER_LOGIN',

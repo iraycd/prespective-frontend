@@ -4,8 +4,9 @@
  */
 
 const config = {
-  name: 'React Redux Saga Boilerplate',
-  description: 'Boilerplate with React and Redux with Redux Saga',
+  name: 'Perspective - MBTI',
+  description:
+    "Perspective is a 7 minute test that determines each team member's Myers-Briggs Type Indicator",
 };
 
 export default config;

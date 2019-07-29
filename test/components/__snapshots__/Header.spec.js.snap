@@ -31,7 +31,7 @@ exports[`Header should render properly 1`] = `
 }
 
 .c0 {
-  background-color: #113740;
+  background-color: #113264;
   height: 70px;
   left: 0;
   position: fixed;

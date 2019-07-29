@@ -1,85 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home should render properly 1`] = `
-.c5 {
-  box-sizing: border-box;
-  text-transform: uppercase;
-  background-color: #2E2E2E;
-  border: 1px solid #2E2E2E;
-  color: #fff;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 0px;
-  box-shadow: none;
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-family: inherit;
-  font-size: 22px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  line-height: 1;
-  padding: 14px 20px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  width: auto;
-}
-
-.c5:disabled {
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.c5:focus {
-  outline-color: #2E2E2E;
-}
-
-.c5 .c8 {
-  margin-left: 5px;
-}
-
-.c7 {
-  box-sizing: border-box;
-  margin-left: 8px;
-}
-
 .c0 {
-  background: #000 linear-gradient(to bottom,#00657e 0%,#002529 100%) fixed;
+  background: #113264;
   color: #fff;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
-}
-
-.c0:before {
-  background: linear-gradient(to bottom,#000,#fff);
-  bottom: 0;
-  content: '';
-  left: 0;
-  opacity: 0.4;
-  position: absolute;
-  right: 0;
-  top: 0;
-  -webkit-transform: rotate(-20deg) scale(2) translate(0,45%);
-  -ms-transform: rotate(-20deg) scale(2) translate(0,45%);
-  transform: rotate(-20deg) scale(2) translate(0,45%);
-}
-
-.c6 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c6 svg {
-  height: auto;
-  max-height: 100%;
-  width: 20px;
 }
 
 .c3 {
@@ -109,8 +36,6 @@ exports[`Home should render properly 1`] = `
   max-width: 1440px;
   position: relative;
   width: 100%;
-  padding-bottom: 16px;
-  padding-top: 16px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -141,25 +66,84 @@ exports[`Home should render properly 1`] = `
 
 .c4 {
   color: #fff;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   line-height: 1.4;
   margin-bottom: 16px;
   margin-top: 0;
   text-align: center;
 }
 
-@media (min-width:768px) {
-  .c1 {
-    padding-bottom: 32px;
-    padding-top: 32px;
-  }
+.c5 {
+  color: #9abae9;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 16px;
+  margin-top: 0;
+  text-align: center;
 }
 
-@media (min-width:1024px) {
-  .c1 {
-    padding-bottom: 64px;
-    padding-top: 64px;
-  }
+.c6 {
+  box-sizing: border-box;
+  text-transform: uppercase;
+  background-color: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 22px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 14px 20px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+  border-radius: 0.3rem;
+  background-color: #3d59fa;
+  border-color: #3d59fa;
+  border-radius: 0.6rem;
+}
+
+.c6:disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.c6:focus {
+  outline-color: #2E2E2E;
+}
+
+.c6 .c8 {
+  margin-left: 5px;
+}
+
+.c6:hover {
+  color: #fff;
+  background-color: #1839f9;
+  border-color: #0b2ef9;
+}
+
+.c7 {
+  box-sizing: border-box;
+  margin-left: 8px;
+  color: #fff;
+  padding: 0.6rem 1.9rem;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 @media (min-width:768px) {
@@ -177,7 +161,13 @@ exports[`Home should render properly 1`] = `
 
 @media (min-width:1024px) {
   .c4 {
-    font-size: 4rem;
+    font-size: 3rem;
+  }
+}
+
+@media (min-width:1024px) {
+  .c5 {
+    font-size: 1.5rem;
   }
 }
 
@@ -190,7 +180,7 @@ exports[`Home should render properly 1`] = `
     data-testid="HomeWrapper"
   >
     <HomeContainer
-      verticalPadding={true}
+      verticalPadding={false}
     >
       <div
         className="c1"
@@ -212,10 +202,17 @@ exports[`Home should render properly 1`] = `
           <h1
             className="c4"
           >
-            React Redux Saga Boilerplate
+            Perspective - MBTI
           </h1>
         </Heading>
-        <Button
+        <SubHeading>
+          <h3
+            className="c5"
+          >
+            Perspective is a 7 minute test that determines each team member's Myers-Briggs Type Indicator
+          </h3>
+        </SubHeading>
+        <GetStarted
           animate={false}
           as="button"
           block={false}
@@ -230,33 +227,25 @@ exports[`Home should render properly 1`] = `
           variant="primary"
         >
           <button
-            className="c5"
+            className="c6"
             data-testid="Login"
             disabled={false}
             onClick={[Function]}
             size="xl"
             type="button"
           >
-            <IconWrapper
-              src="/media/icons/sign-in.svg"
-              width={20}
-            >
-              <span
-                className="isvg loading c6"
-              />
-            </IconWrapper>
-            <Text
+            <GetStartedText
               as="span"
               ml={2}
             >
               <span
                 className="c7"
               >
-                Start
+                Get Started
               </span>
-            </Text>
+            </GetStartedText>
           </button>
-        </Button>
+        </GetStarted>
       </div>
     </HomeContainer>
   </div>

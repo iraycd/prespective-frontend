@@ -8,7 +8,6 @@ import { login } from 'actions/index';
 
 import { Button, Container, Text, utils } from 'styled-minimal';
 import Background from 'components/Background';
-import Icon from 'components/Icon';
 import Logo from 'components/Logo';
 
 const { spacer } = utils;
@@ -39,7 +38,7 @@ const Header = styled.div`
 
 const Heading = styled.h1`
   color: #fff;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   line-height: 1.4;
   margin-bottom: ${spacer(3)};
   margin-top: 0;
@@ -47,9 +46,45 @@ const Heading = styled.h1`
 
   ${/* sc-custom '@media-query' */ utils.responsive({
     lg: `
-      font-size: 4rem;
+      font-size: 3rem;
     `,
   })};
+`;
+
+const SubHeading = styled.h3`
+  color: #9abae9;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: ${spacer(3)};
+  margin-top: 0;
+  text-align: center;
+
+  ${/* sc-custom '@media-query' */ utils.responsive({
+    lg: `
+      font-size: 1.5rem;
+    `,
+  })};
+`;
+
+const GetStarted = styled(Button)`
+  border-radius: 0.3rem;
+  background-color: #3d59fa;
+  border-color: #3d59fa;
+  border-radius: 0.6rem;
+  :hover {
+    color: #fff;
+    background-color: #1839f9;
+    border-color: #0b2ef9;
+  }
+`;
+
+const GetStartedText = styled(Text)`
+  color: #fff;
+  padding: 0.6rem 1.9rem;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: capitalize;
 `;
 
 export class Home extends React.PureComponent {
@@ -69,21 +104,21 @@ export class Home extends React.PureComponent {
 
     return (
       <Background key="Home" data-testid="HomeWrapper">
-        <HomeContainer verticalPadding>
+        <HomeContainer>
           <Header>
             <Logo type="logo" />
           </Header>
           <Heading>{config.name}</Heading>
-          <Button
+          <SubHeading>{config.description}</SubHeading>
+          <GetStarted
             animate={user.status === 'running'}
             onClick={this.handleClickLogin}
             size="xl"
             textTransform="uppercase"
             data-testid="Login"
           >
-            <Icon name="sign-in" />
-            <Text ml={2}>Start</Text>
-          </Button>
+            <GetStartedText ml={2}>Get Started</GetStartedText>
+          </GetStarted>
         </HomeContainer>
       </Background>
     );
