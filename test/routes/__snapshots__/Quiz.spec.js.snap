@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quiz should render properly 1`] = `
+<Screen
+  data-testid="QuizWrapper"
+  key="Quiz"
+  minHeight="100vh"
+>
+  <Container
+    verticalPadding={true}
+  >
+    <Box
+      mb={4}
+    >
+      <Heading
+        as="h5"
+      >
+        Discover Your Perspective
+      </Heading>
+      <Text
+        as="span"
+        fontSize={1}
+      >
+        Complete the 7 min test and get a detailed report of your lenses on the world.
+      </Text>
+    </Box>
+    <Connect(Quiz) />
+  </Container>
+</Screen>
+`;

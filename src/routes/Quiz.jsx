@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Github from 'containers/GitHub';
+import QuizContainer from 'containers/Quiz';
 
 import { Box, Container, Heading, Screen, Text } from 'styled-minimal';
 
@@ -13,7 +13,7 @@ const Quiz = () => (
           Complete the 7 min test and get a detailed report of your lenses on the world.
         </Text>
       </Box>
-      <Github />
+      <QuizContainer />
     </Container>
   </Screen>
 );
