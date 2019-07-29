@@ -30,9 +30,29 @@ export function* getQuestionList() {
   }
 }
 
+export function* getResult({ payload }) {
+  try {
+    const response = yield call(request, `http://localhost:5000/quiz/${payload.resultId}/result`);
+    yield put({
+      type: ActionTypes.MBTI_GET_RESULT_SUCCESS,
+      payload: {
+        resultId: payload.resultId,
+        response,
+      },
+    });
+  } catch (err) {
+    /* istanbul ignore next */
+    yield put({
+      type: ActionTypes.MBTI_GET_RESULT_FAILURE,
+      payload: err,
+    });
+  }
+}
+
 /**
  * Question Sagas
  */
 export default function* root() {
   yield all([takeLatest(ActionTypes.MBTI_GET_QUESTIONS, getQuestionList)]);
+  yield all([takeLatest(ActionTypes.MBTI_GET_RESULT, getResult)]);
 }

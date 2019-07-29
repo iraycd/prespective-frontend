@@ -21,6 +21,9 @@ Object {
   "quiz": Object {
     "questions": Array [],
   },
+  "result": Object {
+    "results": Object {},
+  },
   "user": Object {
     "isAuthenticated": false,
     "status": "idle",
