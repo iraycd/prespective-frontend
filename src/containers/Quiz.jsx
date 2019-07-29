@@ -28,11 +28,15 @@ const QuizGrid = styled.ul`
 `;
 
 const EmailGrid = styled.div`
-  width: 50%;
+  width: 400px;
+  margin: 0px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  > {
+    margin: 10px;
+  }
 `;
 
 const Item = styled.span`
@@ -178,10 +182,10 @@ export class Quiz extends React.Component {
         {output}
 
         <EmailGrid>
-          <Label>Your Work Email</Label>
-          <Input placeholder="Your Email ID" />
+          <Label>Your Email</Label>
+          <Input placeholder="you@example.com" />
           <Text>Let's see what your result looks like.</Text>
-          <SubmitButton>Get the Result</SubmitButton>
+          <SubmitButton>Save and Continue</SubmitButton>
         </EmailGrid>
       </div>
     );

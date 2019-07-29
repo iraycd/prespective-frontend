@@ -16,6 +16,7 @@ import { showAlert } from 'actions/index';
 
 import Home from 'routes/Home';
 import Quiz from 'routes/Quiz';
+import Result from 'routes/Result';
 import NotFound from 'routes/NotFound';
 
 import Header from 'components/Header';
@@ -91,6 +92,11 @@ export class App extends React.Component {
                   isAuthenticated={user.isAuthenticated}
                   path="/quiz"
                   component={Quiz}
+                />
+                <RoutePrivate
+                  isAuthenticated={user.isAuthenticated}
+                  path="/result/:id"
+                  component={Result}
                 />
                 <Route component={NotFound} />
               </Switch>
