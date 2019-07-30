@@ -24,6 +24,9 @@ export const ActionTypes = keyMirror({
   MBTI_GET_RESULT: undefined,
   MBTI_GET_RESULT_SUCCESS: undefined,
   MBTI_GET_RESULT_FAILURE: undefined,
+  MBTI_SUBMIT_ANSWERS: undefined,
+  MBTI_SUBMIT_ANSWERS_SUCCESS: undefined,
+  MBTI_SUBMIT_ANSWERS_FAILURE: undefined,
   SHOW_ALERT: undefined,
   HIDE_ALERT: undefined,
 });
@@ -38,4 +41,19 @@ export const STATUS = {
   READY: 'ready',
   SUCCESS: 'success',
   ERROR: 'error',
+};
+
+/**
+ * @constant {Object} PERSONALITIES
+ * @memberof Constants
+ */
+export const PERSONALITIES = {
+  E: 'Extraversion',
+  I: 'Introversion',
+  S: 'Sensing',
+  N: 'Intuition',
+  T: 'Thinking',
+  F: 'Feeling',
+  J: 'Judging',
+  P: 'Perceiving',
 };

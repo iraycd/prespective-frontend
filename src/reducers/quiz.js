@@ -6,6 +6,7 @@ import { ActionTypes, STATUS } from 'constants/index';
 
 export const questionState = {
   questions: [],
+  resultId: '',
 };
 
 export const resultState = {
@@ -26,6 +27,21 @@ export default {
           status: { $set: STATUS.READY },
         }),
       [ActionTypes.MBTI_GET_QUESTIONS_FAILURE]: (state, { payload }) =>
+        immutable(state, {
+          message: { $set: parseError(payload.message) },
+          status: { $set: STATUS.ERROR },
+        }),
+      [ActionTypes.MBTI_SUBMIT_ANSWERS]: state =>
+        immutable(state, {
+          resultId: { $set: '' },
+          status: { $set: STATUS.RUNNING },
+        }),
+      [ActionTypes.MBTI_SUBMIT_ANSWERS_SUCCESS]: (state, { payload }) =>
+        immutable(state, {
+          resultId: { $set: payload.resultId },
+          status: { $set: STATUS.READY },
+        }),
+      [ActionTypes.MBTI_SUBMIT_ANSWERS_FAILURE]: (state, { payload }) =>
         immutable(state, {
           message: { $set: parseError(payload.message) },
           status: { $set: STATUS.ERROR },

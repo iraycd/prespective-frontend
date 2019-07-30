@@ -6,7 +6,7 @@ import treeChanges from 'tree-changes';
 import ReactRating from 'react-rating';
 import { appColor } from 'modules/theme';
 
-import { getQuestions, showAlert } from 'actions/index';
+import { getQuestions, showAlert, submitQuiz } from 'actions/index';
 import { STATUS } from 'constants/index';
 
 import { Heading, Button, Input, Label, Text, theme, utils } from 'styled-minimal';
@@ -96,23 +96,29 @@ export class Quiz extends React.Component {
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
+    history: PropTypes.object,
     quiz: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
     const { dispatch } = this.props;
-
     dispatch(getQuestions());
   }
 
   componentWillReceiveProps(nextProps) {
-    const { dispatch } = this.props;
+    const { dispatch, history } = this.props;
     const { changedTo } = treeChanges(this.props, nextProps);
-
+    if (nextProps.quiz.resultId !== '') {
+      history.push(`/result/${nextProps.quiz.resultId}`);
+    }
     if (changedTo('quiz', STATUS.ERROR)) {
       dispatch(showAlert(nextProps.quiz.questions.message, { variant: 'danger' }));
     }
   }
+
+  setEmail = email => {
+    this.setState({ email });
+  };
 
   setAnswer = (questionId, answer) => {
     let { answerMap } = this.state;
@@ -120,6 +126,23 @@ export class Quiz extends React.Component {
     this.setState({
       answerMap,
     });
+  };
+
+  submitAnswers = () => {
+    const { dispatch, quiz } = this.props;
+    const { answerMap, email } = this.state;
+    const answerList = [];
+    if (quiz.questions.length === Object.keys(answerMap).length) {
+      Object.entries(answerMap).forEach(([key, value]) => {
+        answerList.push({
+          answer: value,
+          question: key,
+        });
+      });
+      dispatch(submitQuiz(email, answerList));
+    } else {
+      dispatch(showAlert('All question are not answered', { variant: 'danger' }));
+    }
   };
 
   render() {
@@ -176,16 +199,15 @@ export class Quiz extends React.Component {
     } else {
       output = <Loader block />;
     }
-
     return (
       <div key="Quiz" data-testid="QuizWrapper">
         {output}
 
         <EmailGrid>
           <Label>Your Email</Label>
-          <Input placeholder="you@example.com" />
+          <Input placeholder="you@example.com" onChange={e => this.setEmail(e.target.value)} />
           <Text>Let's see what your result looks like.</Text>
-          <SubmitButton>Save and Continue</SubmitButton>
+          <SubmitButton onClick={this.submitAnswers}>Save and Continue</SubmitButton>
         </EmailGrid>
       </div>
     );

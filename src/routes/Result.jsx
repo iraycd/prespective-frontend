@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import treeChanges from 'tree-changes';
 import { getResult, showAlert } from 'actions/index';
-import { STATUS } from 'constants/index';
+import { STATUS, PERSONALITIES } from 'constants/index';
 import Loader from 'components/Loader';
 
 import { Heading, Text } from 'styled-minimal';
@@ -38,19 +38,11 @@ const ResultLayout = styled.div`
   }
 `;
 
-const FailureBar = styled.div`
+const ResultBar = styled.div`
   width: 140px;
   height: 14px;
-  background: #e8e8e88c;
+  background: ${props => (props.success ? '#b73aa6' : '#e8e8e8')};
 `;
-
-const SuccessBar = styled.div`
-  width: 140px;
-  height: 14px;
-  background: #b73aa6;
-`;
-
-const ResultBar = styled.div``;
 
 const ResultText = styled.span`
   width: 140px;
@@ -71,7 +63,6 @@ class Result extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: props.result,
       resultId: props.match.params.id,
     };
   }
@@ -97,6 +88,21 @@ class Result extends React.Component {
     }
   }
 
+  renderResultRow(meaning, dimension) {
+    return (
+      <Row>
+        <ResultText left>
+          {PERSONALITIES[dimension[0]]} ( {dimension[0]} )
+        </ResultText>
+        {meaning === dimension[0] ? <ResultBar success /> : <ResultBar />}
+        {meaning === dimension[1] ? <ResultBar success /> : <ResultBar />}
+        <ResultText>
+          {PERSONALITIES[dimension[1]]} ( {dimension[1]} )
+        </ResultText>
+      </Row>
+    );
+  }
+
   render() {
     const { resultId } = this.state;
     const { result } = this.props;
@@ -105,37 +111,20 @@ class Result extends React.Component {
     try {
       const prespectiveType = result[resultId];
       const type = prespectiveType.shortCode;
+      const description = prespectiveType.longCode;
       output = (
         <ResultLayout>
           <DescriptionLayout>
             <Heading as="h3">Your Perspective</Heading>
-            <Text>Your Perspective Type is {type}</Text>
+            <Text>
+              Your Perspective Type is {type} ({description})
+            </Text>
           </DescriptionLayout>
           <InnerLayout>
-            <Row>
-              <ResultText left>Introversion ( I )</ResultText>
-              <ResultBar>{type.charAt('0') === 'I' ? <SuccessBar /> : <FailureBar />}</ResultBar>
-              <ResultBar>{type.charAt('0') === 'E' ? <SuccessBar /> : <FailureBar />}</ResultBar>
-              <ResultText>Extraversion ( E )</ResultText>
-            </Row>
-            <Row>
-              <ResultText left>Sensing ( S )</ResultText>
-              <ResultBar>{type.charAt('1') === 'S' ? <SuccessBar /> : <FailureBar />}</ResultBar>
-              <ResultBar>{type.charAt('1') === 'N' ? <SuccessBar /> : <FailureBar />}</ResultBar>
-              <ResultText>Intution ( N )</ResultText>
-            </Row>
-            <Row>
-              <ResultText left>Thinking ( T )</ResultText>
-              <ResultBar>{type.charAt('2') === 'T' ? <SuccessBar /> : <FailureBar />}</ResultBar>
-              <ResultBar>{type.charAt('2') === 'F' ? <SuccessBar /> : <FailureBar />}</ResultBar>
-              <ResultText>Feeling ( F )</ResultText>
-            </Row>
-            <Row>
-              <ResultText left>Judging ( J )</ResultText>
-              <ResultBar>{type.charAt('3') === 'J' ? <SuccessBar /> : <FailureBar />}</ResultBar>
-              <ResultBar>{type.charAt('3') === 'P' ? <SuccessBar /> : <FailureBar />}</ResultBar>
-              <ResultText>Perceiving ( P )</ResultText>
-            </Row>
+            {this.renderResultRow(type[0], 'IE')}
+            {this.renderResultRow(type[1], 'SN')}
+            {this.renderResultRow(type[2], 'TF')}
+            {this.renderResultRow(type[3], 'JP')}
           </InnerLayout>
         </ResultLayout>
       );

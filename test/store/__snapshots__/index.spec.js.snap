@@ -20,6 +20,7 @@ Object {
   },
   "quiz": Object {
     "questions": Array [],
+    "resultId": "",
   },
   "result": Object {
     "results": Object {},

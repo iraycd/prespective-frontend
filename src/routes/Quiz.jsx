@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import QuizContainer from 'containers/Quiz';
 
 import { Box, Container, Heading, Screen, Text } from 'styled-minimal';
 
-const Quiz = () => (
+const Quiz = ({ history }) => (
   <Screen key="Quiz" data-testid="QuizWrapper">
     <Container verticalPadding>
       <Box mb={4}>
@@ -13,9 +14,13 @@ const Quiz = () => (
           Complete the 7 min test and get a detailed report of your lenses on the world.
         </Text>
       </Box>
-      <QuizContainer />
+      <QuizContainer history={history} />
     </Container>
   </Screen>
 );
+
+Quiz.propTypes = {
+  history: PropTypes.any,
+};
 
 export default Quiz;
